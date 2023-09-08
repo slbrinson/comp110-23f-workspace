@@ -1,16 +1,10 @@
 """Practicing Counters"""
 
-num_string: str = "203"
+my_number_string: str = input("Guess a number: ")
+my_number: int = int(my_number_string)
 
-num_of_odds: int = 0
+if my_number == 10:
+    print("Right")
 
-if int(num_string[0]) % 2 == 1:
-    num_of_odds = num_of_odds + 1
-
-if int(num_string[1]) % 2 == 1:
-    num_of_odds = num_of_odds + 1
-
-if int(num_string[2]) % 2 == 1:
-    num_of_odds = num_of_odds + 1
-
-    print(num_of_odds)
+else:
+    print("Wrong")
