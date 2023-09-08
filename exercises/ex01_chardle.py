@@ -36,5 +36,12 @@ if single_letter == five_character_word[4]:
 
 if instance_of_letter >= 1:
     print(str(instance_of_letter) + " instance of " + single_letter + " found in " + five_character_word)
-else:
+    exit()
+
+if instance_of_letter >= 2:
+    print(str(instance_of_letter) + " instance of " + single_letter + " found in " + five_character_word)
+    exit()
+
+if instance_of_letter == 0:
     print("No instance of " + single_letter + " found in " + five_character_word)
+    exit()
