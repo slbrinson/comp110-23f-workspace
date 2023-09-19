@@ -22,20 +22,22 @@ while letter_idx < len(secret_word):
         #if the index at each place of the words match, a green box will print
         emoji = emoji + GREEN_BOX
     if secret_word_guess[letter_idx] != secret_word[letter_idx]:
-        #if the indices do not match, a white box will print
-        emoji = emoji + WHITE_BOX
 
         #indices of the guess are in the secret word but are not in the same index position
-        letter_exists: secret_word_guess(letter_idx) == [secret_word] and not secret_word_guess[letter_idx] == secret_word[letter_idx]
+        letter_exists = False
         alternate_idx: int = 0
+        
         while not(letter_exists) and alternate_idx < len(secret_word):
-            if alternate_idx == secret_word_guess[letter_idx]:
-                
+            if secret_word[alternate_idx] == secret_word_guess[letter_idx]:
+                letter_exists = True
             else:
                 alternate_idx = alternate_idx + 1
-        if letter_exists == alternate_idx:
+        if letter_exists is True:
             emoji = emoji + YELLOW_BOX
 
+        #if the indices do not match, a white box will print
+        else:
+            emoji = emoji + WHITE_BOX
     letter_idx = letter_idx + 1
 
 print(emoji)
