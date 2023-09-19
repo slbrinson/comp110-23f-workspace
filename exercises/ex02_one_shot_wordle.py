@@ -26,7 +26,7 @@ while letter_idx < len(secret_word):
         letter_exists = False
         alternate_idx: int = 0
         
-        while not(letter_exists) and alternate_idx < len(secret_word):
+        while not (letter_exists) and alternate_idx < len(secret_word):
             if secret_word[alternate_idx] == secret_word_guess[letter_idx]:
                 letter_exists = True
             else:
