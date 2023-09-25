@@ -28,15 +28,36 @@ def emojified(guess: str, secret: str) -> str:
             emoji = emoji + YELLOW_BOX
         if contains_char(secret, guess[letter_idx]) is False:
             emoji = emoji + WHITE_BOX
-    letter_idx = letter_idx + 1
+        letter_idx = letter_idx + 1
     return emoji
-
 
 def input_guess(expected_len: int) -> str:
     """Prompting for correct word length of secret word."""
     guess: str = input(f"Enter a {expected_len} character word: ")
 
     while len(guess) != expected_len:
-        if len(guess) != len(expected_len):
-            guess = input(f"That wasn't {expected_len} chars! Try again: ")
-        return input
+        guess = input(f"That wasn't {expected_len} chars! Try again: ")
+    return input
+    
+def main() -> None:
+    """The entrypoint of the program and main game loop."""
+    secret: str = "codes"
+    guess: str = ""
+    turns: int = 1
+
+    while guess != secret:
+        print(f"=== Turn {turns}/6 ===")
+        guess = input_guess(len(secret))
+        print(emojified)
+
+        if turns <= 6 and guess != secret:
+            turns = turns + 1
+
+        if turns <= 6 and guess == secret:
+            print(f"You won in {turns}/6 turns!")
+
+        if turns > 6:
+            print("X/6 - Sorry, try again tomorrow!")
+
+if __name__ == "__main__":
+    main()
