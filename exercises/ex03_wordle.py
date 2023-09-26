@@ -37,26 +37,30 @@ def input_guess(expected_len: int) -> str:
 
     while len(guess) != expected_len:
         guess = input(f"That wasn't {expected_len} chars! Try again: ")
-    return input
+    
+    return guess
     
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
     guess: str = ""
     turns: int = 1
+    turns_count: int = 1
 
-    while guess != secret:
+    while guess != secret and turns <= 6:
         print(f"=== Turn {turns}/6 ===")
         guess = input_guess(len(secret))
-        print(emojified)
+        print(emojified(guess, secret))
 
-        if turns <= 6 and guess != secret:
-            turns = turns + 1
+        if turns_count <= 6 and guess != secret:
+            turns_count += 1
+            turns += 1
 
-        if turns <= 6 and guess == secret:
+        if turns_count <= 6 and guess == secret:
+            turns_count += 1
             print(f"You won in {turns}/6 turns!")
 
-        if turns > 6:
+        if turns_count > 6:
             print("X/6 - Sorry, try again tomorrow!")
 
 if __name__ == "__main__":
