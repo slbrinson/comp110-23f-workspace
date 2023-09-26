@@ -6,6 +6,7 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
+
 def contains_char(word: str, single_char: str) -> bool:
     """Checking if the single character is in the word at any index."""
     assert len(single_char) == 1
@@ -14,6 +15,7 @@ def contains_char(word: str, single_char: str) -> bool:
         return True
     else:
         return False
+
 
 def emojified(guess: str, secret: str) -> str:
     """Will check indices and print corresponding colored emoji boxes."""
@@ -31,6 +33,7 @@ def emojified(guess: str, secret: str) -> str:
         letter_idx = letter_idx + 1
     return emoji
 
+
 def input_guess(expected_len: int) -> str:
     """Prompting for correct word length of secret word."""
     guess: str = input(f"Enter a {expected_len} character word: ")
@@ -40,6 +43,7 @@ def input_guess(expected_len: int) -> str:
     
     return guess
     
+
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
@@ -60,8 +64,9 @@ def main() -> None:
             turns_count += 1
             print(f"You won in {turns}/6 turns!")
 
-        if turns_count > 6:
+        if turns > 6:
             print("X/6 - Sorry, try again tomorrow!")
+
 
 if __name__ == "__main__":
     main()
