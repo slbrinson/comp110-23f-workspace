@@ -46,7 +46,7 @@ def input_guess(expected_len: int) -> str:
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
-    secret: str = "codes"
+    secret: str = "snaggle"
     guess: str = ""
     turns: int = 1
     turns_count: int = 1
