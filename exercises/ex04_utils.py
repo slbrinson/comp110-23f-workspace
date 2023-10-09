@@ -7,6 +7,9 @@ def all(input: list[int], single_num: int) -> bool:
     """Checking if all numbers in the list match a single given number."""
     all_idx: int = 0
     matches: bool = True
+
+    if len(input) == 0:
+        return False
     
     while all_idx < len(input):
         if single_num == input[all_idx] and len(input) != 0:
@@ -22,6 +25,16 @@ def max(input: list[int]) -> int:
     if len(input) == 0:
         raise ValueError("max() arg is an empty List")
     
+    list_idx: int = 0
+    max_num: int = int(input[0])
+
+    while list_idx < len(input):
+        current_num: int = int(input[list_idx])
+        if (current_num > max_num):
+            max_num = current_num
+        list_idx += 1
+    return max_num
+
 
 def is_equal(list1: list[int], list2: list[int]) -> bool:
     """Checking if the numbers in each list match at each index."""
