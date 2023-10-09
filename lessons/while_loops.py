@@ -1,11 +1,11 @@
 """Demonstrates while loops by finding low vaule in string"""
 
-cards: str = "52351"
+cards: str = "132"
 
 card_idx: int = 0
 low_card: int = int(cards[0])
 #look at each number in the string
-while card_idx < 5:
+while card_idx < 3:
     #check if currrent card is less than low card
     current_card: int = int(cards[card_idx])
     if (current_card < low_card):
