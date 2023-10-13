@@ -1,4 +1,4 @@
-"""Turtle Project - Balloons."""
+"""Turtle Project - Birthday Balloons."""
  
 __author__ = "730717721"
  
@@ -11,13 +11,21 @@ def main() -> None:
     balloons: Turtle = Turtle()
     balloon1(balloons, -300, -120)
     balloon1(balloons, 0, 0)
+    balloon1(balloons, 400, 0)
     balloon2(balloons, 300, 100)
     balloon2(balloons, -200, 90)
-    balloon_tie1(balloons, -315, -140)
-    balloon_tie1(balloons, -15, -20)
+    balloon_tie1(balloons, -315, -135)
+    balloon_tie1(balloons, -15, -15)
+    balloon_tie1(balloons, 385, -15)
     balloon_tie2(balloons, 285, 85)
     balloon_tie2(balloons, -215, 75)
-
+    balloon_tail(balloons, -300, -138)
+    balloon_tail(balloons, 0, -18)
+    balloon_tail(balloons, 400, -18)
+    balloon_tail(balloons, 300, 82)
+    balloon_tail(balloons, -200, 72)
+    balloon_star(balloons, 315, 250)
+    balloon_star(balloons, -185, 240)
     done()
 
 def balloon1(happy: Turtle, x: float, y: float) -> None:
@@ -56,7 +64,7 @@ def balloon_tie1(triangle: Turtle, x: float, y: float) -> None:
     while (i < 3):
         triangle.forward(30)
         triangle.left(120)
-        i = i + 1
+        i += 1
     triangle.end_fill()
 
 
@@ -72,13 +80,48 @@ def balloon_tie2(triangle: Turtle, x: float, y: float) -> None:
     while (i < 3):
         triangle.forward(30)
         triangle.left(120)
-        i = i + 1
+        i += 1
     triangle.end_fill()
 
 
 def balloon_tail(tail: Turtle, x: float, y: float) -> None:
-    """Balloon string."""
+    """Draw a balloon string."""
+    tail.penup()
+    tail.goto(x, y)
+    tail.pendown()
+    tail.pencolor("black")
+    tail.pensize(5)
+    tail.speed(50)
+    tail.setheading(-90)
+    tail.forward(50)
+    tail.left(45)
+    tail.forward(50)
+    tail.right(45)
+    tail.forward(50)
+    tail.right(45)
+    tail.forward(75)
+    tail.left(45)
+    tail.forward(50)
+    tail.left(45)
+    tail.forward(50)
+    tail.right(45)
+    tail.forward(100)
+    tail.hideturtle()
 
+def balloon_star(star: Turtle, x: float, y: float) -> None:
+    """Draw a blue star on the yellow balloons."""
+    star.penup()
+    star.goto(x, y)
+    star.pendown()
+    star.color(71, 44, 158)
+    star.speed(50)
+    star.begin_fill()
+    i: int = 0
+    while (i < 5):
+        star.forward(100)
+        star.right(144)
+        i += 1
+    star.end_fill()
 
 if __name__ == "__main__":
     main()
