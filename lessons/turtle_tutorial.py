@@ -37,4 +37,10 @@ while (i < 3):
     i = i + 1
 
 
+bob.left(90)
+bob.color('red')
+bob.begin_fill()
+bob.circle(100)
+bob.end_fill()
+
 done()
