@@ -28,6 +28,7 @@ def main() -> None:
     balloon_star(balloons, -185, 240)
     done()
 
+
 def balloon1(happy: Turtle, x: float, y: float) -> None:
     """Draw pink balloons."""
     happy.penup()
@@ -106,7 +107,7 @@ def balloon_tail(tail: Turtle, x: float, y: float) -> None:
     tail.forward(50)
     tail.right(45)
     tail.forward(100)
-    tail.hideturtle()
+
 
 def balloon_star(star: Turtle, x: float, y: float) -> None:
     """Draw a blue star on the yellow balloons."""
@@ -122,6 +123,8 @@ def balloon_star(star: Turtle, x: float, y: float) -> None:
         star.right(144)
         i += 1
     star.end_fill()
+    star.hideturtle()
+
 
 if __name__ == "__main__":
     main()
