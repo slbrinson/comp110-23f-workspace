@@ -1,3 +1,5 @@
+"""CL02 Practice."""
+
 x: int = -3
 y: int = 9
 

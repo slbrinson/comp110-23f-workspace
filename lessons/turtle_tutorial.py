@@ -30,7 +30,6 @@ bob.pencolor("black")
 bob.speed(50)
 bob.hideturtle()
 
-i: int = 0
 while (i < 3):
     bob.forward(300)
     bob.left(120)
