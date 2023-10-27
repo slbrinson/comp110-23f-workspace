@@ -14,3 +14,5 @@ def invert(input: dict[str, str]) -> dict[str, str]:
 
 def favorite_colors(input: dict[str, str]) -> str:
     """Return the color that appears most."""
+
+
