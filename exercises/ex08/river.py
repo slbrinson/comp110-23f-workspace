@@ -24,7 +24,18 @@ class River:
             self.bears.append(Bear())
 
     def check_ages(self):
-        """Defining check_ages."""
+        """Removing bears and fish based on their age."""
+        surviving_fish_list: list[int] = list()
+        for fish in self.fish:
+            if fish.age <= 3:
+                surviving_fish_list.append(fish)
+        self.fish = surviving_fish_list
+
+        surviving_bears_list: list[int] = list()
+        for bears in self.bears:
+            if bears.age <= 5:
+                surviving_bears_list.append(fish)
+        self.bears = surviving_bears_list
         return None
 
     def bears_eating(self):
@@ -48,7 +59,7 @@ class River:
         fish_pop = len(self.fish)
         bear_pop = len(self.bears)
 
-        print(f"~~~ Day {self.day} ~~~")
+        print(f"~~~ Day {self.day}: ~~~")
         print(f"Fish population: {fish_pop}")
         print(f"Bear population: {bear_pop}")
         return None
@@ -78,6 +89,12 @@ class River:
             
     def one_river_week(self):
         """Simulate one week of life in the river."""
-        for elem in range(7):
+        for day in range(7):
             self.one_river_day()
+            return None
+        
+    def remove_fish(self, amount: int):
+        """Removing fish at the first index."""
+        for fish in range(amount):
+            self.fish.pop(0)
             return None
