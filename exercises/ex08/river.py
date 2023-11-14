@@ -9,8 +9,8 @@ __author__ = "730717721"
 class River:
     """Defining River class."""
     day: int
-    bears: list[Fish] = []
-    fish: list[Bear] = []
+    bears: list[Bear] = []
+    fish: list[Fish] = []
     
     def __init__(self, num_fish: int, num_bears: int):
         """New River with num_fish Fish and num_bears Bears."""
@@ -34,24 +34,49 @@ class River:
         surviving_bears_list: list[int] = list()
         for bears in self.bears:
             if bears.age <= 5:
-                surviving_bears_list.append(fish)
+                surviving_bears_list.append(bears)
         self.bears = surviving_bears_list
         return None
 
     def bears_eating(self):
-        """Defining bears_eating."""
+        """Bears will eat three fish if there are at least five fish in the river."""
+        fish_for_bears = 5 * len(self.bears)
+        if len(self.fish) >= fish_for_bears:
+            for bear in self.bears:
+                if len(self.fish) >= 5:
+                    self.remove_fish(3)
+                    bear.eat(3)
         return None
     
     def check_hunger(self):
         """Defining check_hunger."""
+        surviving_bears_list: list[int] = list()
+        for bears in self.bears:
+            if bears.hunger_score >= 0:
+                surviving_bears_list.append(bears)
+        self.bears = surviving_bears_list
         return None
         
     def repopulate_fish(self):
-        """Defining repopulate_fish."""
+        """Each set of fish will produce four offspring."""
+        new_fish_list: list[int] = list()
+        new_fish_num = (len(self.fish) // 2) * 4
+        for fish in range(new_fish_num):
+            new_fish = Fish()
+            new_fish_list.append(new_fish)
+        for new_fish in new_fish_list:
+            self.fish.append(new_fish)
         return None
     
     def repopulate_bears(self):
-        """Defining repopulate_bears."""
+        """Each set of bears will produce one offspring."""
+        new_bears_list: list[int] = list()
+        new_bears_born = len(self.bears) // 2
+        for bear in range(new_bears_born):
+            new_bears = Bear()
+            new_bears_list.append(new_bears)
+        for new_bears in new_bears_list:
+            self.bears.append(new_bears)
         return None
     
     def view_river(self):
@@ -91,7 +116,7 @@ class River:
         """Simulate one week of life in the river."""
         for day in range(7):
             self.one_river_day()
-            return None
+        return None
         
     def remove_fish(self, amount: int):
         """Removing fish at the first index."""
